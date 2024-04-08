@@ -54,9 +54,11 @@
 					case 3:
 						System.out.println("------Calculate Bill & Display amount to end user--------");
 							AdminCheckHistory.displaybillDetails();
+							
 						break;
 					case 4:
 						System.out.println("----------------Check & Update quantity  ----------------");
+									Product.updateProductlist();
 									Product.updateAdminQuantityList();
 						break;
 					case 5:
