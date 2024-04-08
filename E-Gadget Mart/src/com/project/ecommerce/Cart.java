@@ -18,7 +18,7 @@ public class Cart {
 		try {
 			
 			System.out.println("-------------Add to Cart --------------");
-			System.out.println("Enter your username ->");
+			System.out.println("To Add Proudct to Cart, Enter your username ->");
 			String username= scanner.next();
 			System.out.println("Enter product id ->");
 			int productid= scanner.nextInt();
@@ -58,7 +58,7 @@ public class Cart {
 				addToCart();
 			}
 			else {
-				System.out.println("Add to cart sucessfully");
+				System.out.println("Product Added to cart sucessfully");
 			}
 			//System.out.println("-------------Product added to cart sucessfully------------------");		
 			} catch (SQLException e) {
@@ -73,8 +73,8 @@ public class Cart {
 	public static void	viewCart() {
 		Scanner scanner = new Scanner (System.in);
 		try {
-			
-			System.out.println("Enter your username ->");
+			System.out.println("----------------------View Cart---------------------");
+			System.out.println("To view Cart, Enter your username ->");
 			String username= scanner.next();
 			Connection connection =Common.getConnection();
 			String sql1 ="select * from cart where username =?";

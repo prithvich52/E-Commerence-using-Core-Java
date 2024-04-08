@@ -26,19 +26,25 @@ public static void displayProductDetails() {
 //					System.out.printf("%10s %15s %8s %10s %15s",set.getInt("productid"),set.getString("productname"),
 //							set.getString("productdesc"), set.getInt("productprice"), set.getInt("productquantity"));
 //				}
-			System.out.println("-----------------------ProductList-----------------------");
-			System.out.println("Product Id is ->"+set.getInt(1));
-			System.out.println("Product Name is ->"+set.getString(2));
-			System.out.println("Product Description is ->"+set.getString(3));
-			System.out.println("Product Price is ->"+set.getInt(4));
-			System.out.println("Product quantity is ->"+set.getInt(5));
-			System.out.println("---------------------------------------------------------------");
-			
+				
+				
+				System.out.println("******************************************************************************");
+				System.out.println("*---------------------- Proudct list ---------------------------*");
+				System.out.println("******************************************************************************");
+				System.out.println(" ProductId" +"\t"+ "Product Name"+ "\t\t"+"Product Description"+"\t\t"+"Product Price" +"\t"+ "Product quantity \t ");	
+				System.out.println("------------------------------------------------------------------------------");
+								
+							while (set.next()) {
+				System.out.printf( "%10s %18s %35s %10s %15s",set.getInt(1),set.getString(2),set.getString(3),set.getInt(4),set.getInt(5));			
+						System.out.println();
+							System.out.println("--------------------------------------------------------------------------");
+							
 			System.out.println("Prducts details displayed sucessfully");
 			
 
-			}	
-		} catch (SQLException e) {
+							}
+			}}
+		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}System.out.println("Do you want to continue ?");
@@ -59,13 +65,13 @@ public static void displayProductDetails() {
 	
 		
 
-//public static void main(String[] args) {
+public static void main(String[] args) {
 //	Scanner scanner = new Scanner (System.in);
 //	System.out.println("Enter product id ->");
 //	int productid= scanner.nextInt();
-//	displayProductDetails();
+	displayProductDetails();
 	
 	
-//}
+}
 }
 

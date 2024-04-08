@@ -54,8 +54,8 @@ public static void addNewProduct() {
 
 	public static void updateProductlist () {
 		Scanner scanner = new Scanner (System.in);
-		System.out.println("---------------Updated Product List--------------");
-		System.out.println("Enter product id ->");
+		System.out.println("------------------------------------------------------");
+		System.out.println("Enter Username to update quantity after buying");
 		int productid= scanner.nextInt();
 		int productquantity=0;
 		//int productquantity1=0;
@@ -88,12 +88,13 @@ public static void addNewProduct() {
 			preparedStatement2.setInt(1, productquantity);
 			preparedStatement2.setInt(2, productid);
 			preparedStatement2.executeUpdate();
-			System.out.println("Update sucessfully.");
+			//System.out.println("Update sucessfully.");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-}}
+}
+		}
 	
 	
 	public static void updateAdminQuantityList() {

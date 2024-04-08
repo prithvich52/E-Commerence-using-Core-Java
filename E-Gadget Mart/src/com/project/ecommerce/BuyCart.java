@@ -18,7 +18,7 @@ package com.project.ecommerce;
 			long total = 0l;
 				Scanner scanner = new Scanner (System.in);
 				System.out.println("------------------Buy from cart----------------------");
-				System.out.println("Enter your username ->");
+				System.out.println("To buy product, enter your username ->");
 				String username= scanner.next();
 				Connection con=Common.getConnection();
 				String sql ="insert into buy (productid,productname,productdesc,productprice,productquantity,username) "
@@ -56,9 +56,10 @@ package com.project.ecommerce;
 			public static void displaybillDetails(){
 				long total = 0l;
 				Scanner scanner = new Scanner (System.in);
+				System.out.println("------------Bill Display Page--------------------");
 					try {
 						
-						System.out.println("Enter your username ->");
+						System.out.println("To get bill enter your username ->");
 						String username= scanner.next();
 						Connection connection =Common.getConnection();
 						String sql1 ="select * from buy where username =?";
@@ -70,7 +71,7 @@ package com.project.ecommerce;
 			System.out.println("******************************************************************************");
 			System.out.println("*----------------------  Welcome To E-Gadget Mart ---------------------------*");
 			System.out.println("******************************************************************************");
-			System.out.println(" SrNo" +"\t"+ "Product id"+ "\t"+  "Product Name" + "\t"  + "Price" +"\t"+ "Quantity"+ "\t"+ "Total Price" +"\t ");	
+			System.out.println(" SrNo" +"\t"+ "Product id"+ "\t"+  "Product Name" + "\t"  + "Price" +"\t"+ "Quantity"+ "\t"+ "Total" +"\t ");	
 			System.out.println("------------------------------------------------------------------------------");
 							
 						while (set.next()) {
@@ -98,22 +99,18 @@ package com.project.ecommerce;
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}		System.out.println("Do you want to continue ?");
-					System.out.println("Press Y for Yes and N for No");
-					again =scanner.next();
-					
-					System.out.println("!!Thank you for the Visit!!..For Further shopping to to Homepage");
-						HomePage.mainMethod();
-					}
-
-					
 				}
+					
+					
+					}
+				
+	//}				
 
 			
-//		public static void main(String[] args) {
-//				buyProduct();
-////			//displaybillDetails();
-	//}
-
+	public static void main(String[] args) {
+				//buyProduct();
+			displaybillDetails();
+	}
+	}
 
 
