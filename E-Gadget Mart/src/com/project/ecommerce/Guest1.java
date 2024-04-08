@@ -5,47 +5,42 @@ import java.util.Scanner;
 public class Guest1 {
 
 	public static String again;
-	public static void getGuestChoice () {
+
+	public static void getGuestChoice() {
 		System.out.println(" Press 1 :-  View Product Items \n Press 2 :-  Purchase Items \n Press 3 :- Exit");
 		System.out.println("--------------------------------------------------------------------------------");
-		Scanner scanner = new Scanner (System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter your Choice");
 		int choice = scanner.nextInt();
-		
-			
-		
+
 		switch (choice) {
-		
+
 		case 1:
 			System.out.println("--------------------------View Product Items ----------------------------");
-				GuestDisplay.displayProductDetails();
+			GuestDisplay.displayProductDetails();
 			break;
-			
+
 		case 2:
 			System.out.println("---------------------------- Purchase Items -----------------------------");
-				System.out.println("Please Register before place order");
-				throw new GuestCustomException("Please Register before place order");
-				
-				
+			System.out.println("Please Register before place order");
+			throw new GuestCustomException("Please Register before place order");
+
 		case 3:
 			System.out.println("Do you want to continue ?");
 			System.out.println("Press Y for Yes and N for No");
-			again =scanner.next();
-			
-			if(again.equalsIgnoreCase("Y")) {
+			again = scanner.next();
+
+			if (again.equalsIgnoreCase("Y")) {
 				HomePage.mainMethod();
-			}
-			else {
+			} else {
 				System.out.println("You are sucessfully exit...!!Thank you for the Visit!!");
 			}
 			break;
-		default : 
+		default:
 			System.out.println("Invalid Choice");
-			
-}
-}
 
-	private static void exit(int i) {
-		// TODO Auto-generated method stub
-		
-	}}
+		}
+	}
+
+	
+}
