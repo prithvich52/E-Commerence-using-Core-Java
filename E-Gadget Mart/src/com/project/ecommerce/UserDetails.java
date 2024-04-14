@@ -25,9 +25,7 @@ public class UserDetails {
 		System.out.println("Enter User Phone Number ->");
 		long userphonenumber = scanner.nextLong();
 
-		System.out.println("Enter User Id ->");
-		int userid = scanner.nextInt();
-
+		
 		System.out.println("Enter Username ->");
 		String username = scanner.next();
 
@@ -35,17 +33,16 @@ public class UserDetails {
 		String userpassword = scanner.next();
 		try {
 			Connection connection = Common.getConnection();
-			String sql = "insert into user (firstname,lastname,useremail,userphonenumber,userid,username,userpassword)"
-					+ "values (?,?,?,?,?,?,?)";
+			String sql = "insert into user (firstname,lastname,useremail,userphonenumber,username,userpassword)"
+					+ "values (?,?,?,?,?,?)";
 			PreparedStatement prepareStatement = connection.prepareStatement(sql);
 
 			prepareStatement.setString(1, userfirstname);
 			prepareStatement.setString(2, userlastname);
 			prepareStatement.setString(3, useremail);
 			prepareStatement.setLong(4, userphonenumber);
-			prepareStatement.setInt(5, userid);
-			prepareStatement.setString(6, username);
-			prepareStatement.setString(7, userpassword);
+			prepareStatement.setString(5, username);
+			prepareStatement.setString(6, userpassword);
 
 			prepareStatement.execute();
 

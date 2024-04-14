@@ -18,7 +18,7 @@ public class BuyCart {
 		String again = null;
 		long total = 0l;
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("------------------Buy from cart----------------------");
+		System.out.println("---------------------------------Buy from cart-------------------------------------------");
 		System.out.println("To buy product, enter your username ->");
 		String username = scanner.next();
 		Connection con = Common.getConnection();
@@ -35,9 +35,9 @@ public class BuyCart {
 			PreparedStatement preparedStatement4 = connection.prepareStatement(sql4);
 			preparedStatement4.setString(1, username);
 			preparedStatement4.executeUpdate();
-			System.out.println("----------------------------------------------------------------");
-			System.out.println("***----------Proudct added to Buy cart sucessfully--------***");
-			System.out.println("----------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------------");
+			System.out.println("***------------------ Proudct added to Buy cart sucessfully ----------------------***");
+			System.out.println("-------------------------------------------------------------------------------------");
 			System.out.println("Do you want to continue ?");
 			System.out.println("Press Y for Yes and N for No");
 			again = scanner.next();
@@ -53,7 +53,7 @@ public class BuyCart {
 	public static void displaybillDetails() {
 		long total = 0l;
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("------------Bill Display Page--------------------");
+		System.out.println("---------------------------------Bill Display Page--------------------------------------");
 		try {
 
 			System.out.println("To get bill enter your username ->");
@@ -65,18 +65,19 @@ public class BuyCart {
 
 			ResultSet set = prepareStatement.executeQuery();
 
-			System.out.println("******************************************************************************");
-			System.out.println("*----------------------  Welcome To E-Gadget Mart ---------------------------*");
-			System.out.println("******************************************************************************");
-			System.out.println(" SrNo" + "\t" + "Product id" + "\t" + "Product Name" + "\t" + "Price" + "\t"
+			System.out.println("*************************************************************************************");
+			System.out.println("*--------------------------  Welcome To E-Gadget Mart ------------------------------*");
+			System.out.println("*************************************************************************************");
+			System.out.println(" SrNo" + "\t" + "Product id" + "\t" + "Product Name" + "\t" + "Price   "+"\t"
 					+ "Quantity" + "\t" + "Total" + "\t ");
-			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------------");
 
 			while (set.next()) {
-				System.out.println(set.getInt(1) + "\t" + set.getInt(3) + "\t" + set.getString(4) + "\t" + set.getInt(6)
-						+ "\t" + set.getInt(7) + "\t" + set.getLong(8) + "\t");
-
-				System.out.println("--------------------------------------------------------------------------");
+			
+				System.out.printf("%2s %10s %22s %10s %10s %17s",set.getInt(1),set.getInt(3),set.getString(4),set.getInt(6)
+						,set.getInt(7),set.getLong(8));
+			System.out.println();
+			System.out.println("-------------------------------------------------------------------------------------");
 
 			}
 			String sql5 = "select sum(total) as amount from buy where username =?";
@@ -89,15 +90,20 @@ public class BuyCart {
 			System.out.println("                                                Total Amount =" + total + "/- Rs.");
 			System.out.println("");
 
-			System.out.println("                    Thank you For Visiting....");
+			System.out.println("               			 ....Thank you For Visiting....");
 			System.out.println("");
-			System.out.println("***************************************************************************");
+			System.out.println("*************************************************************************************");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}UserProudctHistory.getUserProductHistory();
+		System.out.println("Thank you for the visiting !!! for further shopping go to Home page");
+		HomePage.mainMethod();
 
+	}
+	public static void main(String[] args) {
+		BuyCart.displaybillDetails();
 	}
 
 }

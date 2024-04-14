@@ -56,27 +56,41 @@ public class AdminDetails {
 
 						break;
 					case 4:
-						System.out.println("----------------Check & Update quantity  ----------------");
-						Product.updateProductlist();
+						System.out.println("----------------Check & Update quantity  -----------------");
+						//Product.updateProductlist();
 						Product.updateAdminQuantityList();
 						break;
 					case 5:
-						System.out.println("----------------Check registered user  ------------------");
+						System.out.println("----------------Check registered user  ---------------------");
 						UserDetails.displayUserDetails();
 						break;
 					case 6:
-						System.out.println("------------Check particular user history ---------------");
-						AdminCheckHistory.viewCart();
-						// AdminCheckHistory.buyProduct();
+						System.out.println("------------Check particular user history -------------------");
+						System.out.println(" Press 1 :- View Cart History \n Press 2 :- View Purchase History");
+						Scanner scanner3 = new Scanner(System.in);
+						int choice1 = scanner3.nextInt();
+						switch (choice1) {
+						case 1:
+							System.out.println("------------------View Cart History ----------------------");
+							UserProudctHistory.adminViewCart();
+							break;
+						case 2:
+							System.out.println("------------------View Purchase History -------------------");
+						UserProudctHistory.viewPurchaseHistory();
+						break;
+						}
+						
 						break;
 					default:
 						System.out.println("Invalid Choice");
 						break;
+					
 					}
 				} else {
 					System.out.println("Invalid details, Please Enter valid details");
 					adminLogin();
 				}
+				System.out.println("-----------------------------------------------------------------------");
 			}
 
 		} catch (SQLException e) {
