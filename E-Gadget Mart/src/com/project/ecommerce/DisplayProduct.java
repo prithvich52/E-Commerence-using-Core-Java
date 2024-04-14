@@ -18,38 +18,41 @@ public class DisplayProduct {
 			PreparedStatement prepareStatement = connection.prepareStatement(sql1);
 
 			ResultSet set = prepareStatement.executeQuery();
-			while (set.next()) {
+			
 
-				System.out.println("******************************************************************************");
-				System.out.println("*---------------------- Proudct list ---------------------------*");
-				System.out.println("******************************************************************************");
+				System.out.println("******************************************************************************************************");
+				System.out.println("*------------------------------------------- Proudct list -------------------------------------------*");
+				System.out.println("******************************************************************************************************");
 				System.out.println(" ProductId" + "\t" + "Product Name" + "\t\t" + "Product Description" + "\t\t"
 						+ "Product Price" + "\t" + "Product quantity \t ");
-				System.out.println("------------------------------------------------------------------------------");
+				System.out.println("------------------------------------------------------------------------------------------------------");
 
 				while (set.next()) {
 					System.out.printf("%10s %18s %35s %10s %15s", set.getInt(1), set.getString(2), set.getString(3),
 							set.getInt(4), set.getInt(5));
 					System.out.println();
-					System.out.println("--------------------------------------------------------------------------");
+					System.out.println("--------------------------------------------------------------------------------------------------");
 
-					System.out.println("Prducts details displayed sucessfully");
+					
 
 				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Do you want to continue ?");
-		System.out.println("Press Y for Yes and N for No");
-		again = scanner.next();
+				System.out.println("Prducts details displayed sucessfully");
+			
+		}catch(
 
-		if (again.equalsIgnoreCase("Y")) {
-			Cart.addToCart();
-		} else {
-			System.out.println("You are sucessfully exit...!!Thank you for the Visit!!");
-		}
+	SQLException e)
+	{
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}System.out.println("Do you want to continue ?");System.out.println("Press Y for Yes and N for No");again=scanner.next();
+
+	if(again.equalsIgnoreCase("Y"))
+	{
+		Cart.addToCart();
+	}else
+	{
+		System.out.println("You are sucessfully exit...!!Thank you for the Visit!!");
+	}
 
 	}
 

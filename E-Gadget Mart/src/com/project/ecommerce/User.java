@@ -6,7 +6,8 @@ public class User {
 	public static String again;
 
 	public static void getUserChoice() {
-		System.out.println("Press 1 - New Registration \n Press 2- For User Login \n");
+		System.out.println("Press 1 - New Registration \nPress 2 - For User Login \n");
+		System.out.println("------------------------------------------------------------------------------------------");
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter your Choice");
 		int choice = scanner.nextInt();
